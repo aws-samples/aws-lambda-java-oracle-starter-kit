@@ -1,6 +1,6 @@
-# AWS Lambda using Java, Oracle Database, and AWS Secrets Manager - Quick start
+# AWS Lambda using Java, Oracle Database, and AWS Secrets Manager - Starter Kit
 
-This is a quick start solution for developing AWS Lambda to work with Oracle database using AWS Secrets Manager. 
+This is a Starter Kit for developing AWS Lambda based applications to work Oracle database using AWS Secrets Manager. 
 
 ## Pre-requisites
 1. Apache Maven
