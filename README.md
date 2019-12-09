@@ -1,6 +1,6 @@
 # AWS Lambda using Java, Oracle Database, and AWS Secrets Manager - Starter Kit
 
-This is a Starter Kit for developing AWS Lambda based applications to work with Oracle database using AWS Secrets Manager. 
+This is a Starter Kit for developing AWS Lambda based applications to work with Oracle database using AWS Secrets Manager.
 
 ## Pre-requisites
 1. Apache Maven
@@ -8,8 +8,8 @@ This is a Starter Kit for developing AWS Lambda based applications to work with 
 
 ## AWS Service Requirements
 This starter kit requires the following AWS services
-1. AWS Lambda function
-2. AWS Secrets Manager Secret
+1. AWS Lambda
+2. AWS Secrets Manager Secrets
 
 ## Oracle JDBC driver Installation
 1. Download Oracle driver for Java from Oracle website https://www.oracle.com/database/technologies/jdbc-drivers-12c-downloads.html. Select the appropriate driver. For e.g. ojdbc7.jar
@@ -65,16 +65,18 @@ This starter kit requires the following AWS services
 
 
 ## Best Practices
-For the brevity of this article, I intentionally did not discuss additional security topics and best practices. However, security is an important requirement for developing applications on AWS. The following resources may be useful.
+Security is important for developing applications on AWS. Please refer the following resources related to this topic.
 
 1.	It is important to encrypt connection to a database. Refer the following resources from AWS 
 	1. [Oracle Security](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Oracle.html#Oracle.Concepts.RestrictedDBAPrivileges)
 	2. [Oracle Secure Sockets Layer](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.SSL.html) for more details.
-2.	Refer c more details around this topic.
+2.	Refer the following resources to know more about security concepts.
 	1. [AWS Secrets Manager Best Practices](https://docs.aws.amazon.com/secretsmanager/latest/userguide/best-practices.html) 
 	2. [Security in AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/lambda-security.html)
 	3. [Security Overview of AWS Lambda](https://d1.awsstatic.com/whitepapers/Overview-AWS-Lambda-Security.pdf)
-3.	We’ve discussed a process of installing Oracle JDBC driver in a local environment. However, for production use cases, this model will not be practical. A better of maintaining third party libraries that are not available on Maven central repository is using Repository Manager within your organization. Refer Apache Maven's documentation for more details [here](https://maven.apache.org/repository-management.html)
+3.	The scripts provided here will help install Oracle JDBC driver to a local Maven environment. 
+However, for production use cases, the best practice is to maintain third-party libraries (that are not available on Maven central repository) 
+is using Repository Manager within your organization. Refer Apache Maven's documentation for more details [here](https://maven.apache.org/repository-management.html)
 
 ## License Summary
 This sample code is made available under the MIT license. See the LICENSE file.
