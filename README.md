@@ -52,7 +52,7 @@ This starter kit requires the following AWS services
 3. Deploy **AWSLambdaOracleStarter** function
    	1. Runtime = Java 8
    	1. Function package = Use the Jar file generated. Refer section [Build Instructions](#Build-Instructions)
-   	2. Lambda Handler = ```com.amazonaws.lambda.oracle.quickstart.AWSLambdaOracleQuickstart```
+   	2. Lambda Handler = ```com.amazonaws.lambda.oracle.starter.AWSLambdaOracleStarter```
    	3. Timeout = e.g. 1 minute
 	4. Memory = e.g. 128 MB
 	5. Execution Role = created in Step # 2
