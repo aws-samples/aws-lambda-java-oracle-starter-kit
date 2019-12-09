@@ -1,6 +1,17 @@
 # AWS Lambda using Java, Oracle Database, and AWS Secrets Manager - Starter Kit
 
-This is a Starter Kit for developing AWS Lambda based applications to work with Oracle database using AWS Secrets Manager.
+This is a Starter Kit for developing AWS Lambda based applications to work with Oracle database using Java and 
+AWS Secrets Manager. It provides Oracle JDBC driver installation scripts, a Maven project with dependencies for AWS Lambda, AWS Secrets Manager, 
+Oracle JDBC driver, and utility classes with the following functionalities:
+1. Securely retrieve database credentials from AWS Secrets Manager
+2. Establish database connectivity to Oracle Datable e.g. Amazon RDS for Oracle
+
+Using this, you can focus on developing your business logic without spending time in figuring out 
+configuration and packaging of your AWS Lambda function.
+
+This starter kit represents the following Architecture Scenario
+![Alt](./src/test/resources/AWS_Lambda_Amazon_RDS_for_Oracle.png)
+
 
 ## Pre-requisites
 1. Apache Maven
@@ -76,7 +87,7 @@ Security is important for developing applications on AWS. Please refer the follo
 	3. [Security Overview of AWS Lambda](https://d1.awsstatic.com/whitepapers/Overview-AWS-Lambda-Security.pdf)
 3.	The scripts provided here will help install Oracle JDBC driver to a local Maven environment. 
 However, for production use cases, the best practice is to maintain third-party libraries (that are not available on Maven central repository) 
-is using Repository Manager within your organization. Refer Apache Maven's documentation for more details [here](https://maven.apache.org/repository-management.html)
+is using Repository Manager within your organization. Refer Apache Maven's documentation for more details [here](https://maven.apache.org/repository-management.html).
 
 ## License Summary
 This sample code is made available under the MIT license. See the LICENSE file.
