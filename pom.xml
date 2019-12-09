@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.amazonaws.lambda.oracle.quickstart</groupId>
-	<artifactId>AWSLambda-Java-Oracle-Quickstart</artifactId>
+	<groupId>com.amazonaws.lambda.oracle.sample</groupId>
+	<artifactId>AWSLambda-Java-Oracle-Starter</artifactId>
 	<version>1.0</version>
 	<packaging>jar</packaging>
 
@@ -31,7 +31,7 @@
 							<transformers>
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<mainClass>com.amazonaws.gdcreplication.lambda.AWSLambdaOracleQuickstart</mainClass>
+									<mainClass>com.amazonaws.lambda.oracle.starter.AWSLambdaOracleStarter</mainClass>
 								</transformer>
 							</transformers>
 						</configuration>

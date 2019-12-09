@@ -1,7 +1,7 @@
 // Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: MIT-0
 
-package com.amazonaws.lambda.oracle.quickstart;
+package com.amazonaws.lambda.oracle.starter;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -29,7 +29,7 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
  * @author Ravi Itha, Amazon Web Services, Inc.
  *
  */
-public class AWSLambdaOracleQuickstart implements RequestHandler<Object, String> {
+public class AWSLambdaOracleStarter implements RequestHandler<Object, String> {
 
 	@Override
 	public String handleRequest(Object input, Context context) {

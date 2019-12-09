@@ -1,10 +1,12 @@
 // Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: MIT-0
 
-package com.amazonaws.lambda.oracle.quickstart;
+package com.amazonaws.lambda.oracle.starter;
 
 import java.util.Base64;
+import java.util.Optional;
 
+import com.amazonaws.lambda.oracle.starter.DatabaseCredentials;
 import com.amazonaws.secretsmanager.caching.SecretCache;
 import com.amazonaws.services.secretsmanager.AWSSecretsManager;
 import com.amazonaws.services.secretsmanager.AWSSecretsManagerClientBuilder;
@@ -20,20 +22,46 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
 
-public class SecretsManagerUtil {
+public class SecretsManagerTest {
+
+	/**
+	 * Important Note: Do not try to print confidential information (e.g. database
+	 * credentials) to CloudWatch console.
+	 * 
+	 * @param args
+	 */
+	public static void main(String[] args) {
+
+		String secretString = getSecretUsingSecretsCache("us-east-1", "secrets_demo");
+		if (Optional.ofNullable(secretString).isPresent()) {
+			DatabaseCredentials dbCreds = parseSecretString(secretString);
+			System.out.printf("Username: %s, Host: %s, Port: %s, DatabaseName: %s \n",
+					dbCreds.getUserName(), dbCreds.getDbHost(), dbCreds.getDbPort(),
+					dbCreds.getDbName());
+		} else {
+			System.out.println("Secret String is null. Will not parse it.");
+		}
+
+		String secretString2 = getSecretUsingSecretsManager("us-east-1", "secrets_demo");
+		if (Optional.ofNullable(secretString2).isPresent()) {
+			DatabaseCredentials dbCreds2 = parseSecretString(secretString2);
+			System.out.printf("Username: %s, Host: %s, Port: %s, DatabaseName: %s \n",
+					dbCreds2.getUserName(), dbCreds2.getDbHost(), dbCreds2.getDbPort(),
+					dbCreds2.getDbName());
+		} else {
+			System.out.println("Secret String is null. Will not parse it.");
+		}
+	}
 
 	/**
 	 * Parse Secret Value from AWS Secrets Manager using Secrets Managers Client
-	 * Builder.
-	 * See https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_GetSecretValue.html
-	 * 
-	 * Important Note: Do not try to print confidential information (e.g. database
-	 * credentials) to CloudWatch console
+	 * Builder See
+	 * https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_GetSecretValue.html
 	 * 
 	 * @param region
 	 * @param secretName
 	 */
-	public String getSecretUsingSecretsManager(String region, String secretName) {
+	public static String getSecretUsingSecretsManager(String region, String secretName) {
 
 		String secret = null;
 		GetSecretValueResult getSecretValueResult = null;
@@ -71,16 +99,13 @@ public class SecretsManagerUtil {
 	}
 
 	/**
-	 * Parse Secret Value from AWS Secrets Manager using Secrets Cache Java Library.
-	 * 
-	 * Important Note: Do not try to print confidential information (e.g. database
-	 * credentials) to CloudWatch console.
+	 * Parse Secret Value from AWS Secrets Manager using Secrets Cache Java Library
 	 * 
 	 * @param region
 	 * @param secretName
 	 * @return
 	 */
-	public String getSecretUsingSecretsCache(String region, String secretName) {
+	public static String getSecretUsingSecretsCache(String region, String secretName) {
 		String secret = null;
 		SecretCache cache = new SecretCache(AWSSecretsManagerClientBuilder.standard().withRegion(region));
 		try {
@@ -96,13 +121,10 @@ public class SecretsManagerUtil {
 	/**
 	 * Parse Secret Value to Database credentials
 	 * 
-	 * Important Note: Do not try to print confidential information (e.g. database
-	 * credentials) to CloudWatch console.
-	 * 
 	 * @param secretString
 	 * @return
 	 */
-	public DatabaseCredentials parseSecretString(String secretString) {
+	public static DatabaseCredentials parseSecretString(String secretString) {
 		Gson gson = new Gson();
 		DatabaseCredentials dbCreds = new DatabaseCredentials();
 
@@ -125,5 +147,4 @@ public class SecretsManagerUtil {
 		}
 		return dbCreds;
 	}
-
 }

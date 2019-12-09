@@ -1,19 +1,19 @@
 # AWS Lambda using Java, Oracle Database, and AWS Secrets Manager - Starter Kit
 
-This is a Starter Kit for developing AWS Lambda based applications to work Oracle database using AWS Secrets Manager. 
+This is a Starter Kit for developing AWS Lambda based applications to work with Oracle database using AWS Secrets Manager. 
 
 ## Pre-requisites
 1. Apache Maven
 2. Java SDK
 
 ## AWS Service Requirements
-This quick start requires the following AWS services
+This starter kit requires the following AWS services
 1. AWS Lambda function
 2. AWS Secrets Manager Secret
 
 ## Oracle JDBC driver Installation
-1. Download Oracle driver for Java from Oracle website https://www.oracle.com/database/technologies/jdbc-drivers-12c-downloads.html. Select the appropriate driver. For e.g. ojdbc.jar
-2. Install Oracle Driver to local Maven Environment using one of the scripts provided below
+1. Download Oracle driver for Java from Oracle website https://www.oracle.com/database/technologies/jdbc-drivers-12c-downloads.html. Select the appropriate driver. For e.g. ojdbc7.jar
+2. Install Oracle Driver to local Maven Environment using one of the scripts provided in this project
 	1. For Mac OS or Unix or Linux - [install_oracle_jdbc_driver.sh](./src/main/resources/install_oracle_jdbc_driver.sh)
 	2. For Windows - [install_oracle_jdbc_driver.bat](./AWSLambda-Java-Oracle-Quickstart/src/main/resources/install_oracle_jdbc_driver.bat)
 3. Run the installation script. E.g. 
@@ -33,7 +33,7 @@ This quick start requires the following AWS services
 
 ## Build Instructions
 1. The source code has Maven nature, you can build it using standard Maven commands e.g. ```mvn -X clean install```. or use the options available in your IDE
-2. The above step generates a Jar file e.g. AWSLambda-Java-Oracle-Quickstart-1.0.jar
+2. The above step generates a Jar file e.g. AWSLambda-Java-Oracle-Starter-1.0.jar
 
 ## Deploy Instructions
 1. Setup AWS Secrets Manager Secret. This secrets has the credentials required to connect to Oracle Database
@@ -49,13 +49,13 @@ This quick start requires the following AWS services
 	6. Step 5 
 	![Alt](./src/test/resources/Step_six.png)
 2. Create Lambda Execution IAM Role and attach it to the Lambda function deployed.
-3. Deploy **AWSLambdaOracleQuickstart** function
+3. Deploy **AWSLambdaOracleStarter** function
    	1. Runtime = Java 8
    	1. Function package = Use the Jar file generated. Refer section [Build Instructions](#Build-Instructions)
    	2. Lambda Handler = ```com.amazonaws.lambda.oracle.quickstart.AWSLambdaOracleQuickstart```
    	3. Timeout = e.g. 1 minute
-	4. Memory = e.g. 128 MB	
-	5. Execution Role = created in Step # 2	
+	4. Memory = e.g. 128 MB
+	5. Execution Role = created in Step # 2
 	6. Environment variable = as defined in the following table
 
 	| Variable Name                    	| Variable Value          					|
