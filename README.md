@@ -90,4 +90,4 @@ However, for production use cases, the best practice is to maintain third-party 
 is using Repository Manager within your organization. Refer Apache Maven's documentation for more details [here](https://maven.apache.org/repository-management.html).
 
 ## License Summary
-This sample code is made available under the MIT license. See the LICENSE file.
+This sample code is made available under the MIT-0 license. See the LICENSE file.
